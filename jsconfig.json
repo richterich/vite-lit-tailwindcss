@@ -3,6 +3,10 @@
     "allowJs": true,
     "checkJs": true,
     "strict": true,
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "types": ["vite/client"],
     "baseUrl": ".",
     "paths": {
       "@ui": ["src/shared/ui"],
