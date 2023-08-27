@@ -1,18 +1,17 @@
 import {defineConfig} from 'vite';
 import {fileURLToPath, URL} from 'node:url';
 
-const extpattern = /[^.]+$/;
-
 const config = defineConfig({
   build: {
     rollupOptions: {
+      input: {
+        main: 'index.html',
+        normalize: 'normalize.css',
+        utilities: 'styles.css',
+      },
       output: {
         entryFileNames: 'bundle.[hash].js',
-        assetFileNames: (assetInfo) => {
-          const [ext] = extpattern.exec(assetInfo.name);
-          if (ext === 'css') return 'styles[extname]';
-          return '[name].[hash][extname]';
-        },
+        assetFileNames: '[name][extname]',
       },
     },
   },
